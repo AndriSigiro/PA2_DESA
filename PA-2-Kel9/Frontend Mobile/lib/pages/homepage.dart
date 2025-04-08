@@ -7,10 +7,9 @@ import '../models/product_model.dart';
 import '../models/berita.dart';
 import '../services/api_service.dart';
 import 'product_detail_page.dart';
-<<<<<<< HEAD
-=======
+
 import 'package:html_unescape/html_unescape.dart'; // Tambahkan ini
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,11 +22,11 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   late Future<List<Product>> futureProducts;
   late Future<List<Berita>> futureBerita;
-<<<<<<< HEAD
+
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
-=======
+
   final HtmlUnescape htmlUnescape = HtmlUnescape(); // Tambahkan ini
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
+
 
   @override
   void initState() {
@@ -600,7 +599,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-<<<<<<< HEAD
+
 
   Widget _errorWidget(String message) {
     return Container(
@@ -682,6 +681,4 @@ class _HomePageState extends State<HomePage> {
       return price;
     }
   }
-=======
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
 }

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/berita.dart';
-<<<<<<< HEAD
 import 'package:intl/intl.dart'; // For date formatting
 import 'package:flutter_html/flutter_html.dart'; // Import flutter_html package
-=======
-import 'package:flutter_html/flutter_html.dart'; // Tambahkan ini
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
 
 class BeritaDetailPage extends StatelessWidget {
   final Berita berita;
@@ -19,7 +15,6 @@ class BeritaDetailPage extends StatelessWidget {
     final String formattedDate = formatter.format(berita.createdAt.toLocal());
     
     return Scaffold(
-<<<<<<< HEAD
       backgroundColor: Colors.white,
       // Custom scroll view for better scrolling effects
       body: CustomScrollView(
@@ -38,40 +33,6 @@ class BeritaDetailPage extends StatelessWidget {
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.black87),
                 onPressed: () => Navigator.pop(context),
-=======
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          "Detail Berita",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Judul berita
-            Center(
-              child: Text(
-                berita.title,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black
-                ),
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
               ),
             ),
             flexibleSpace: FlexibleSpaceBar(
@@ -195,11 +156,28 @@ class BeritaDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Article content using basic flutter_html
-                      Container(
-                        child: Html(
-                          data: berita.description,
-                        ),
+                      // Article content using flutter_html with styles
+                      Html(
+                        data: berita.description,
+                        style: {
+                          "body": Style(
+                            fontSize: FontSize(16.0),
+                            color: Colors.grey[800],
+                            lineHeight: LineHeight(1.5),
+                          ),
+                          "b": Style(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          "strong": Style(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          "i": Style(
+                            fontStyle: FontStyle.italic,
+                          ),
+                          "em": Style(
+                            fontStyle: FontStyle.italic,
+                          ),
+                        },
                       ),
                       
                       const SizedBox(height: 40),
@@ -245,68 +223,14 @@ class BeritaDetailPage extends StatelessWidget {
                         ],
                       ),
                       
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 30)
                     ],
                   ),
                 ),
               ],
             ),
-<<<<<<< HEAD
           ),
         ],
-=======
-            SizedBox(height: 20),
-
-            // Gambar berita dengan shadow
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  berita.photoUrl,
-                  width: double.infinity,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-            // Deskripsi berita dengan format HTML
-            Html(
-              data: berita.description,
-              style: {
-                "body": Style(
-                  fontSize: FontSize(16.0),
-                  color: Colors.grey[800],
-                  lineHeight: LineHeight(1.5),
-                ),
-                "b": Style(
-                  fontWeight: FontWeight.bold,
-                ),
-                "strong": Style(
-                  fontWeight: FontWeight.bold,
-                ),
-                "i": Style(
-                  fontStyle: FontStyle.italic,
-                ),
-                "em": Style(
-                  fontStyle: FontStyle.italic,
-                ),
-              },
-            ),
-          ],
-        ),
->>>>>>> 2adfedfdb119fb23cc6b2b49ca139581a3432520
       ),
     );
   }
